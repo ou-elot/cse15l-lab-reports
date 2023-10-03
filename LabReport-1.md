@@ -13,6 +13,13 @@ There is no output, but the directory was changed depending on the path given. U
 
 **c ) Command with path to file argument**  
 ![Image](cdFile.png)  
-It is not possible to use the cd command with a file name as an argument, regardless if we are in the messages directory containing the Hello World files or any other directory. The output in the terminal tells us that there is an error - the file we tried to use as an argument with the cd command is not a valid directory. This error output is expected since cd is meant to change directories, not change files. 
+It is not possible to use the cd command with a file name as an argument, regardless if we are in the messages directory containing the Hello World files or any other directory. The output in the terminal tells us that there is an error - the file we tried to use as an argument with the cd command is not a valid directory. This error output is expected since cd is meant to change directories, not change files.  
 
+## 2. ls Command Examples
+**a ) Command with no arguments**  
+![Image](lsNoArg2.png)  
+Using ls without any arguments shows us all the directories and files that are in the current directory as an output. Any accessible directories are shown in blue font, while files are shown in black font. This output makes sense since the ls command is meant to just list out the contents of a directory. 
 
+**b ) Command with directory arguments**  
+![Image](lsDirArg.png)  
+Using ls with a directory as an argument will show us the files and directories in the directory listed as the argument in the terminal output. However, the output will only show those files if it is accessible from the current directory. For example, when in the home directory, we can only get an output from the command ls lecture1, not ls messages. Using the ls messages command produces an output that tells us that there is no such directory as messages, which makes sense since we cannot directly see that there is a messages directory from the lecture1 directory. The only way we can see the files in the messages directory using the ls command from the home directory is by typing out the whole pathway, such as ls lecture1/messages. 
