@@ -10,3 +10,9 @@ There is no output in the terminal, but running the command cd will reset the di
 ![Image](CDdirectory.PNG)  
 ![Image](cdDirectoryError.png)  
 There is no output, but the directory was changed depending on the path given. Using the cd command while in a directory allows the user to access other directories within the current directory, such as the messages directory within the lecture1 directory. However, skipping straight to the directory within another directory will produce an error output in the terminal, like using the command cd messages while not within the lecture1 directory. This error is expected, as cd cannot open every directory to check for other directories; cd can only check for matching directories that show up with the command ls.
+
+**c ) Command with path to file argument**  
+![Image](cdFile.png)  
+It is not possible to use the cd command with a file name as an argument, regardless if we are in the messages directory containing the Hello World files or any other directory. The output in the terminal tells us that there is an error - the file we tried to use as an argument with the cd command is not a valid directory. This error output is expected since cd is meant to change directories, not change files. 
+
+
