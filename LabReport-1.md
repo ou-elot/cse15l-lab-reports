@@ -27,3 +27,8 @@ Using ls with a directory as an argument will show us the files and directories 
 **c ) Command with file arguments**  
 ![Image](lsFile1.png)  
 ![Image](lsFile2.png)  
+![Image](lsFile4.png)  
+![Image](lsFile3.png)  
+Using ls with a file name as an argument will produce an output repeating the file name. Using either the absolute path or the relative path to the file name will produce the same output. However, if the argument is a relative path and the file is not in the current directory, then the output will be an error saying that there is no such file.  
+
+## 3. cat Command Examples
