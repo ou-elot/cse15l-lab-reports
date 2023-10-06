@@ -38,4 +38,6 @@ It is not possible to use the cat command with no arguments. When pressing enter
 
 **b ) Command with directory arguments**  
 ![Image](catDirArg.png)  
+Using the cat command with a directory as an argument is possible, but the command terminal will only show an output telling us that the directory is an argument. This output is expected, since the cat command is meant to print out the contents of a file, and there are no file contents within a directory; we need to use cat on a file name to access file contents.  
 
+**c ) Command with file arguments**  
