@@ -32,3 +32,10 @@ Using ls with a directory as an argument will show us the files and directories 
 Using ls with a file name as an argument will produce an output repeating the file name. Using either the absolute path or the relative path to the file name will produce the same output. However, if the argument is a relative path and the file is not in the current directory, then the output will be an error saying that there is no such file.  
 
 ## 3. cat Command Examples
+**a ) Command with no arguments**  
+![Image](catNoArg1.png)  
+It is not possible to use the cat command with no arguments. When pressing enter, the command terminal does not detect that the command is finished; pressing enter to try to end the command will only keep creating blank lines. In order for me to use the terminal afterward, I had to enter a file name to end the command.  
+
+**b ) Command with directory arguments**  
+![Image](catDirArg.png)  
+
