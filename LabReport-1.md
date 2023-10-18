@@ -3,17 +3,22 @@
 **a ) Command with no arguments**  
 ![Image](CDnoarguments.PNG)  
 ![Image](CDnoargumentschange.PNG)  
-There is no output in the terminal, but running the command cd will reset the directory to home. If the current directory is home, it seems like nothing has changed. Changing the directory to lecture1 before running the command will change the directory to home after the command is run. In the beginning, the command line shows the directory as [user@sahara ~]. Changing the directory to lecture1 makes it [user@sahara ~ lecture1]. Having no arguments at the end of the command is the same thing as changing the directory to " ", which was the case at the very beginning.
+- In the first example, the working directory is the home directory. In the second example, the working directory is the lecture1 directory.
+- In the home directory, there is no output when we run the cd command. The directory does not change from the home directory after the cd command. In the lecture1 directory, there is no terminal output after running the cd command, but the working directory changes to the home directory. In general, using cd without arguments makes the working directory the home directory. 
+- This behavior is expected and not an error. 
 
 
 **b ) Command with path to directory argument**  
-![Image](CDdirectory.PNG)  
 ![Image](cdDirectoryError.png)  
-There is no output, but the directory was changed depending on the path given. Using the cd command while in a directory allows the user to access other directories within the current directory, such as the messages directory within the lecture1 directory. However, skipping straight to the directory within another directory will produce an error output in the terminal, like using the command cd messages while not within the lecture1 directory. This error is expected, as cd cannot open every directory to check for other directories; cd can only check for matching directories that show up with the command ls.
-
+- In the first example of the cd command being used, the working directory is the home directory. In the second example, the working directory is the lecture1 directory which was changed from the home directory as a result of the first cd command. In the last example, the working directory is the home directory.
+- Using the cd command with a path to directory argument did not produce an output in the terminal, but changed the directory from the home directory to the lecture1 directory to the messages directory. However, we cannot change to the messages directory directly from the home directory. Doing so will produce a message saying that there are no files or directories named messages.
+- The behavior for changing directories from home to lecture1 to messages is expected. The output message when we try to change from home to messages is expected and not an error, since we cannot directly find the messages directory from the home directory, as /home/messages is not a valid path.
+  
 **c ) Command with path to file argument**  
 ![Image](cdFile.png)  
-It is not possible to use the cd command with a file name as an argument, regardless if we are in the messages directory containing the Hello World files or any other directory. The output in the terminal tells us that there is an error - the file we tried to use as an argument with the cd command is not a valid directory. This error output is expected since cd is meant to change directories, not change files.  
+- The working directory is the messages directory that contains the Hello World! text files.
+- Using the cd command with a file name as an argument produces a message saying that the given name is not a valid directory. 
+- This behavior is expected and not an error, since the cd command is used to change directories that contain files within them, not files themselves. In order to try to access a file, we should use the cat command, which prints out the contents of a file.
 
 ## 2. ls Command Examples
 **a ) Command with no arguments**  
