@@ -23,7 +23,8 @@
 ## 2. ls Command Examples
 **a ) Command with no arguments**  
 ![Image](lsNoArg2.png)  
-Using ls without any arguments shows us all the directories and files that are in the current directory as an output. Any accessible directories are shown in blue font, while files are shown in black font. This output makes sense since the ls command is meant to just list out the contents of a directory. 
+- In the first example, the working directory is the home directory. In the second example, the working directory is the lecture1 directory. 
+- Using the ls command without arguments 
 
 **b ) Command with directory arguments**  
 ![Image](lsDirArg.png)  
