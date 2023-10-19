@@ -24,7 +24,8 @@
 **a ) Command with no arguments**  
 ![Image](lsNoArg2.png)  
 - In the first example, the working directory is the home directory. In the second example, the working directory is the lecture1 directory. 
-- Using the ls command without arguments 
+- Using the ls command without arguments lists out all the files and directories in the current directory. In the output, the directories and files are listed in blue text and black text respectively in alphabetical order.
+- This behavior and output is expected, since the ls command is meant to list out what is inside of a directory, which are files and other directories. 
 
 **b ) Command with directory arguments**  
 ![Image](lsDirArg.png)  
