@@ -28,15 +28,16 @@
 - This behavior and output is expected, since the ls command is meant to list out what is inside of a directory, which are files and other directories. 
 
 **b ) Command with directory arguments**  
-![Image](lsDirArg.png)  
-![Image](lsDirArg2.png)  
-Using ls with a directory as an argument will show us the files and directories in the directory listed as the argument in the terminal output. However, the output will only show those files if it is accessible from the current directory. For example, when in the home directory, we can only get an output from the command ls lecture1, not ls messages. Using the ls messages command produces an output that tells us that there is no such directory as messages, which makes sense since we cannot directly see that there is a messages directory from the lecture1 directory. The only way we can see the files in the messages directory using the ls command from the home directory is by typing out the whole pathway, such as ls lecture1/messages. Otherwise, we need to use the cd command to change directory to lecture1 first, then we are now able to use ls messages.   
+![Image](lsDir.png)  
+![Image](lsDir2.png)  
+- In the first example, the directory is the lecture1 directory. In the second example, the directory is the home directory.
+- When using the command "ls messages" in the lecture 1 directory, we are able to see the different Hello World! language files that exist in the messages directory. However, we cannot use ls messages in the home directory, since we are not able to directly access the messages directory from the home directory.
+- This output makes sense and is not an error. We can use cd to change to the messages directory in the lecture1 directory, but not in the home directory, so it would make sense that we can access the messages directory from the lecture1 directory, but not the home directory.
+
 **c ) Command with file arguments**  
-![Image](lsFile1.png)  
-![Image](lsFile2.png)  
 ![Image](lsFile4.png)  
 ![Image](lsFile3.png)  
-Using ls with a file name as an argument will produce an output repeating the file name. Using either the absolute path or the relative path to the file name will produce the same output. However, if the argument is a relative path and the file is not in the current directory, then the output will be an error saying that there is no such file.  
+-In the first example, the directory is the messages directory. In the second example, the directory is the home directory.
 
 ## 3. cat Command Examples
 **a ) Command with no arguments**  
