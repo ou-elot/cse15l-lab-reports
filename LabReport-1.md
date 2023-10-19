@@ -37,7 +37,9 @@
 **c ) Command with file arguments**  
 ![Image](lsFile4.png)  
 ![Image](lsFile3.png)  
--In the first example, the directory is the messages directory. In the second example, the directory is the home directory.
+- In the first example, the directory is the messages directory. In the second example, the directory is the home directory.
+- When using the ls command with a file name as an argument, the output in the terminal is the file name. We cannot use the ls command with a file name that is not in the current directory. Doing so will produce a message saying that there is no such file or directory.
+- This behavior is expected, since the ls command prints out all files and directories. If we pass a file argument, then the file name is the only thing that can be printed out. The behavior of using the command "ls en-us.txt" in the home directory is expected, since this same behavior is also shown in the command with directory arguments. The file system doesn't recognize that there is a file called "en-us.txt" in the home directory, so this behavior is not an error. 
 
 ## 3. cat Command Examples
 **a ) Command with no arguments**  
