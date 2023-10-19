@@ -43,9 +43,11 @@
 
 ## 3. cat Command Examples
 **a ) Command with no arguments**  
-![Image](catNoArg1.png)  
-It is not possible to use the cat command with no arguments. When pressing enter, the command terminal does not detect that the command is finished; pressing enter to try to end the command will only keep creating blank lines. In order for me to use the terminal afterward, I had to enter a file name to end the command.  
-
+![Image](CatNoArg.png)  
+- The current working directory is lecture 1.
+- When using the cd command without any arguments, the command doesn't do anything. The terminal waits for the user to input an argument in order to execute the command. To escape the command, I used control + C.
+- This behavior is expected. The empty argument tells the cat command to get its argument from standard input stdin, which on the terminal is the user input. Needing input from the stdin explains why the terminal didn't immediately provide an error message for invalid argument or not enough arguments, as we could still give our argument to run the command.
+  
 **b ) Command with directory arguments**  
 ![Image](catDirArg.png)  
 Using the cat command with a directory as an argument is possible, but the command terminal will only show an output telling us that the directory is an argument. This output is expected, since the cat command is meant to print out the contents of a file, and there are no file contents within a directory; we need to use cat on a file name to access file contents.  
