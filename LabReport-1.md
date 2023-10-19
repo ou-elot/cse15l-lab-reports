@@ -56,7 +56,7 @@
 
 
 **c ) Command with file arguments**  
-![Image](catFile1.png)  
-![Image](catFile2.png)  
-![Image](catFile3.png)  
-Using the cat command with a valid file name prints out the contents of the file, regardless if it is a .java file or a .txt file. We can list multiple pathways to multiple files in one cat command line to print out the contents of multiple files at the same time, such as cat lecture1/Hello.java lecture1/messages/en-us.txt. 
+![Image](catFile.png)  
+- The working directory in the example is lecture1.
+- Using the cat command with paths of files as arguments prints out the contents of the files listed. We can list multiple file paths in one command line, and the contents of all the files listed would be printed out in the order they are listed in the argument.
+- This behavior is expected, since the cat command is meant to read the data within files and print it out. The word concatenate (where "cat" is from) means to link things together, so being able to print out multiple files one after the other also makes sense and is expected. 
