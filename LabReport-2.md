@@ -22,11 +22,6 @@ class Handler implements URLHandler {
                     return str;
             }
         } 
-        else if (url.getPath().contains("/clear")){
-            str = "";
-            count = 0;
-            return "add strings to the list below";
-        }
             return "404 Not Found!";
     }
 }
@@ -52,9 +47,23 @@ In the handler class that is used by StringServer, I defined a string str as ` "
 and the integer count helps keep track of the current line, allowing us to print out a number and a period corresponding to what number the message is on the list of messages. 
 The method called is public String handleRequest(URI url). The method takes in a URI argument, which is the URL `https://localhost5432/add-message?s=Hi%20I%20am%20Elliott`, changed from the original 
 URL `https://localhost5432` as a result of user input in the search bar. When this method is called, 
-an array of strings called parameters is created, which splits the contents of the query following the path based on the location of the character `=`. The contents before the `=`, which contain the query,
-are put into the parameters array  at index 0 (`parameters[0]`) and the contents after the `=`, which contain the message, are put into the parameters array at index 1 (`parameters[1]`). 
-The values of str and count then change. The integer count is increased by one. The string str is changed to attach the count - turned into String format by the method `Integer.toString(int)` - with a period, 
-the message contained in `parameters[1]`, and then finally a new line `"\n"` to ensure the next message added does not attach in the same line.  
+an array of strings called parameters is created, which splits the contents of the query following the path based on the location of the character `=`. The contents before the `=`, which contains the query `s`,
+are put into the parameters array at index 0 (`parameters[0]`), and the contents after the `=`, which contains the message `Hi I am Elliott`, are put into the parameters array at index 1 (`parameters[1]`). 
+The values of str and count then change. The integer count is increased by one from 0 to 1. The string str is changed to attach the count - turned into String format by the method `Integer.toString(int)` - with a period, 
+the message contained in `parameters[1]`, and then finally a new line `"\n"` to ensure the next message added does not attach in the same line. The new string str is:  
+```
+1. I am Elliott  
+```
 
 ![Image](lab2com2.png)  
+The original two variables in the handler class stay the same. String str is still originally defined as the empty string `""` and integer count is still originally defined as `0`.  These two variables will have the same behavior as in the above screenshot. The string str will be the string where the added messages are added on and returned and the integer count helps keep track of the current line, allowing us to print out a number and a period corresponding to what number the message is on the list of messages. 
+The method called is the same method public String handleRequest(URI url). The method takes in a URI argument, which in the second screenshot is the URL `https://localhost5432/add-message?s=What%27s%20your%20name?`, changed from the  
+URL of the first screenshot `https://localhost5432/add-message?s=Hi%20I%20am%20Elliott` as a result of user input in the search bar. When this method is called, 
+an array of strings called parameters is created, which splits the contents of the query following the path based on the location of the character `=`. The contents before the `=`, which contains the query `s`,
+are put into the parameters array at index 0 (`parameters[0]`) and the contents after the `=`, which contains the message `What's your name`, are put into the parameters array at index 1 (`parameters[1]`). 
+The values of str and count then change. Since the code in the method handleRequest(URI url) does not reset the variables count and str, the current count is `1` and the current str is `1. I am Elliott`. The integer count is increased by one from one to two. The string str is changed to attach the count - turned into String format by the method `Integer.toString(int)` - with a period, 
+the message contained in `parameters[1]`, and then finally a new line `"\n"` to ensure the next message added does not attach in the same line. The new string str is:
+```
+1. I am Elliott
+2. What's your name?
+```
