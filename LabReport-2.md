@@ -67,3 +67,8 @@ the message contained in `parameters[1]`, and then finally a new line `"\n"` to 
 1. I am Elliott
 2. What's your name?
 ```
+
+## Part 2: SSH Keys 
+The screenshot below shows the path to the private key.  
+`/c/Users/ellio/.ssh/authorized_keys/id_rsa`  
+![Image](lab2privateKey.png)  
