@@ -72,3 +72,10 @@ the message contained in `parameters[1]`, and then finally a new line `"\n"` to 
 The screenshot below shows the path to the private key.  
 `/c/Users/ellio/.ssh/authorized_keys/id_rsa`  
 ![Image](lab2privateKey.png)  
+The screenshot below shows the path to the public key.
+`/c/Users/ellio/.ssh/authorized_keys/id_rsa.pub`
+![Image](lab2pubKey.png)  
+The screenshot below shows a successful login attempt without needing to enter a password.  
+![Image](lab2NoLogin.png)  
+
+## Part 3: Something I learned
