@@ -79,3 +79,4 @@ The screenshot below shows a successful login attempt without needing to enter a
 ![Image](lab2NoLogin.png)  
 
 ## Part 3: Something I learned
+One thing I learned was that I could store my password to my remote server account elsewhere. I also didn't know that you could add spaces in the query part of the URL and that the resulting URL would have %20 in place of the spaces. The last thing I learned was that I could hide directories by putting a period at the beginning of the directory name. 
