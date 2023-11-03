@@ -69,12 +69,12 @@ the message contained in `parameters[1]`, and then finally a new line `"\n"` to 
 ```
 
 ## Part 2: SSH Keys 
-The screenshot below shows the path to the private key.  
-`/c/Users/ellio/.ssh/authorized_keys/id_rsa`  
-![Image](lab2privateKey.png)  
-The screenshot below shows the path to the public key.
-`/c/Users/ellio/.ssh/authorized_keys/id_rsa.pub`
-![Image](lab2pubKey.png)  
+The screenshot below shows the ls and cd commands being used to find the path to my public key on the ieng6 server.  
+The path is `/home/linux/ieng6/cs15lfa23/cs15lfa23gr/.ssh/authorized_keys`
+![Image](labReport2Public.png)  
+The screenshot below shows the ls and cd commands being used to find the path to my private key on my own computer.  
+The path is `/c/Users/ellio/.ssh/id_rsa`
+![Image](labReport2Private.png)  
 The screenshot below shows a successful login attempt without needing to enter a password.  
 ![Image](lab2NoLogin.png)  
 
