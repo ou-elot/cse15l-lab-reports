@@ -85,4 +85,30 @@ showing that only arrays with all 0 values successfully have their arrays revers
 The screenshot below shows the terminal output after all the above tests are run together. 
 ![Image](Lab3MoreTests.png)  
 The only tests to pass were the tests with inputs of all zeroes in the array. Every other test shows a failure with the error being a 
-comparison difference of the expected value vs 0 at the index where the first non-zero expected value appears. 
+comparison difference of the expected value vs 0 at the index where the first non-zero expected value appears.  
+
+**4. The bug, as the before-and-after code change required to fix it** 
+Below is the before code:  
+```
+static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+Below is the after code that fixes the bug:  
+```
+static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for (int i = 0; i<arr.length; i++){
+      newArray[i] = arr[arr.length-1-i];
+    }
+    return newArray;
+  }
+```
+In the before code, the for loop assigns values from the newly created Array to the original array backward. 
+However, since newArray was created without having a value assigned, the value at every index was assigned 0 by default. 
+Then assigning values from newArray to arr would make arr, the returned array, all 0s as well. The after code assigns values from arr to 
+newArray, ensuring that the values being assigned to the return array are not all 0s. 
