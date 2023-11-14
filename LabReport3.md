@@ -157,22 +157,49 @@ The command I will research is grep.
    technical/government/Gen_Account_Office/og98045.txt
    technical/government/Gen_Account_Office/og98046.txt
    ```  
-   This would be useful if we wanted to read more about the contents of the Clean Air Act and amendments/discussions on it. Giving us the file names that contain     the term "Clean Air Act" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word "Clean Air Act".   
-3. Option 2: -n
-   Using -n with the grep command outputs a line number in front of the matching line found with the grep command. This can be useful if we are
-   trying to look for a key term and then read more about the term after finding matching lines in the file; the -n would let us know what line to start
-   reading from.
-   ![Image](-nExample1.png)  
-   ![Image](-nExample2.png)
+   This would be useful if we wanted to read more about the contents of the Clean Air Act and amendments/discussions on it. Giving us the file names that contain     the term "Clean Air Act" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word "Clean Air Act".
+   <br/><br/>
+   The -l command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
+   <br/><br/>
+2. Option 2: -n
+   Using -n with the grep command outputs a line number in front of the matching line found with the grep command.
+   Example 1: Using the command `grep -n "At 8:19" technical/911report/chapter-1.txt` produces the following output
+   ```
+   $ grep -n "At 8:19" technical/911report/chapter-1.txt
+   76:    At 8:19, Ong reported:"The cockpit is not answering, somebody's stabbed in business class
+   and I think there's Mace that we can't breathe
+   I don't know, I think we're getting hijacked." She then told of the stabbings of the two flight attendants.  
+   ```
+   This can be useful if we know that we stopped reading a certain file midway through, and want to pick up where we left off again. We most likely would remember some words of the last line we read instead of the line number, so we can find which line we start to read again from easily.
+   <br/><br/>
+   Example 2: Using the command `grep -n "intoxication" technical/government/Alcohol_Problems/*.txt` produces the following output:
+   ```
+   technical/government/Alcohol_Problems/Session2-PDF.txt:27:screening for several alcohol endpoints. Acute intoxication is of
+   technical/government/Alcohol_Problems/Session2-PDF.txt:31:observations, may help us identify intoxication. Most alcohol
+   technical/government/Alcohol_Problems/Session2-PDF.txt:89:ED problems, such as stress, injury, acute illness, intoxication,
+   technical/government/Alcohol_Problems/Session2-PDF.txt:136:course, BAC can help identify acute intoxication. The alcohol
+   technical/government/Alcohol_Problems/Session2-PDF.txt:270:identify intoxication. The presence of alcohol may not always
+   technical/government/Alcohol_Problems/Session2-PDF.txt:378:especially acute intoxication, from 9% to 31%.17,28,46,68-71 Within
+   technical/government/Alcohol_Problems/Session2-PDF.txt:456:alcohol intoxication and chronic alcohol abuse on outcome from
+   technical/government/Alcohol_Problems/Session2-PDF.txt:467:intoxication in alcoholics. J Consult Clin Psychol
+   technical/government/Alcohol_Problems/Session2-PDF.txt:479:acute alcohol intoxication and chronic alcohol dependence by trauma
+   technical/government/Alcohol_Problems/Session3-PDF.txt:506:that 26 of 31 respondents indicated that intoxication at the time
+   technical/government/Alcohol_Problems/Session3-PDF.txt:585:11. Lowenstein SR, Weissberg MP, Terry D. Alcohol intoxication,
+   technical/government/Alcohol_Problems/Session3-PDF.txt:711:surveillance of alcohol intoxication after motor vehicular
+   technical/government/Alcohol_Problems/Session4-PDF.txt:633:acute alcohol intoxication and chronic alcohol dependence by trauma
+   technical/government/Alcohol_Problems/Session4-PDF.txt:636:of police assessment of driver intoxication in motor vehicle
+   technical/government/Alcohol_Problems/Session4-PDF.txt:1039:patients with acute alcohol intoxication on a daily basis, but
+   ```
+   This can be useful if we have a presentation or test coming up and need to do a quick review of certain topics. Using the -n command for certain words in a       directory can help us run through the entire directory and find the files and specific lines for us to read through for a quick recap. 
 
-4. Option 3: -i
+5. Option 3: -i
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
    if using -i. This is useful since some words can be both capitalized and lowercase depending on their usage. Using "-i" would remove any chance we miss some
    matching lines due to these situations.
    ![Image](-iExample1.png)
    ![Image](-iExample2.png)
 
-5. Option 4: -c
+6. Option 4: -c
    Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the word we searched for with the grep command.
    This can be useful to use with the -n command. We can use -c to find if certain files have the topic or word we are looking for, and then use -n to find
    exactly where they are.
