@@ -115,27 +115,44 @@ newArray, ensuring that the values being assigned to the return array are not al
 
 
 ## Part 2: Researching Commands  
-1. Option 1: -v
-   Using -v gives the results of an inverted match; the output is the lines that don't include the word searched for.
-   This can be useful if we want to read through a paper but don't want to read about certain topics.
-   ![Image](-vExample1.png)
+The command I will research is grep. 
+1. Option 1: -l  
+   Using -v gives the names of files that contain the word searched for. The output is only the file names.  
+   Example 1: Using the command grep -l "RNA" technical/biomed/*.txt would show the following output:  
+   ```
+   $ grep -l "RNA" technical/biomed/*.txt
+   technical/biomed/1471-2091-2-11.txt
+   technical/biomed/1471-2091-2-13.txt
+   technical/biomed/1471-2091-2-5.txt
+   technical/biomed/1471-2091-3-14.txt
+   technical/biomed/1471-2091-3-18.txt
+   technical/biomed/1471-2091-3-22.txt
+   technical/biomed/1471-2091-3-23.txt
+   technical/biomed/1471-2105-2-1.txt
+   technical/biomed/1471-2105-2-8.txt
+   technical/biomed/1471-2105-3-17.txt
+   technical/biomed/1471-2105-3-18.txt
+   technical/biomed/1471-2105-3-2.txt
+   technical/biomed/1471-2105-3-22.txt
+   ```  
+   This command can be useful in situations where we want to read about certain research ideas and findings on RNA. Giving us the file names that contain the word "RNA" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word   "RNA". 
    ![Image](-vExample2.png)
    
-2. Option 2: -n
+3. Option 2: -n
    Using -n with the grep command outputs a line number in front of the matching line found with the grep command. This can be useful if we are
    trying to look for a key term and then read more about the term after finding matching lines in the file; the -n would let us know what line to start
    reading from.
    ![Image](-nExample1.png)  
    ![Image](-nExample2.png)
 
-3. Option 3: -i
+4. Option 3: -i
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
    if using -i. This is useful since some words can be both capitalized and lowercase depending on their usage. Using "-i" would remove any chance we miss some
    matching lines due to these situations.
    ![Image](-iExample1.png)
    ![Image](-iExample2.png)
 
-4. Option 4: -c
+5. Option 4: -c
    Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the word we searched for with the grep command.
    This can be useful to use with the -n command. We can use -c to find if certain files have the topic or word we are looking for, and then use -n to find
    exactly where they are.
