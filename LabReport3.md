@@ -117,8 +117,9 @@ newArray, ensuring that the values being assigned to the return array are not al
 ## Part 2: Researching Commands  
 The command I will research is grep. 
 1. Option 1: -l  
-   Using -v gives the names of files that contain the word searched for. The output is only the file names.  
-   Example 1: Using the command grep -l "RNA" technical/biomed/*.txt would show the following output:  
+   Using -l gives the names of files that contain the word searched for. The output is only the file names.
+   <br/><br/>
+   Example 1: Using the command `grep -l "RNA" technical/biomed/*.txt` would have the following output:  
    ```
    $ grep -l "RNA" technical/biomed/*.txt
    technical/biomed/1471-2091-2-11.txt
@@ -135,9 +136,28 @@ The command I will research is grep.
    technical/biomed/1471-2105-3-2.txt
    technical/biomed/1471-2105-3-22.txt
    ```  
-   This command can be useful in situations where we want to read about certain research ideas and findings on RNA. Giving us the file names that contain the word "RNA" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word   "RNA". 
-   ![Image](-vExample2.png)
-   
+   This command can be useful in situations where we want to read about certain medical research ideas and findings on RNA. Giving us the file names that contain     the word "RNA" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the     word "RNA".
+   <br/><br/>
+   Example 2: Using the command `grep -l "Clean Air Act" technical/government/*/*.txt` would have the following output:
+   ```  
+   $ grep -l "Clean Air Act" technical/government/*/*.txt
+   technical/government/Env_Prot_Agen/bill.txt
+   technical/government/Env_Prot_Agen/final.txt
+   technical/government/Env_Prot_Agen/jeffordslieberm.txt
+   technical/government/Env_Prot_Agen/multi102902.txt
+   technical/government/Env_Prot_Agen/nov1.txt
+   technical/government/Env_Prot_Agen/ro_clear_skies_book.txt
+   technical/government/Env_Prot_Agen/section-by-section_summary.txt
+   technical/government/Env_Prot_Agen/tech_adden.txt
+   technical/government/Gen_Account_Office/og96026.txt
+   technical/government/Gen_Account_Office/og96027.txt
+   technical/government/Gen_Account_Office/og96042.txt
+   technical/government/Gen_Account_Office/og96045.txt
+   technical/government/Gen_Account_Office/og97045.txt
+   technical/government/Gen_Account_Office/og98045.txt
+   technical/government/Gen_Account_Office/og98046.txt
+   ```  
+   This would be useful if we wanted to read more about the contents of the Clean Air Act and amendments/discussions on it. Giving us the file names that contain     the term "Clean Air Act" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word "Clean Air Act".   
 3. Option 2: -n
    Using -n with the grep command outputs a line number in front of the matching line found with the grep command. This can be useful if we are
    trying to look for a key term and then read more about the term after finding matching lines in the file; the -n would let us know what line to start
