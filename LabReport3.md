@@ -121,7 +121,6 @@ The command I will research is grep.
    <br/><br/>
    Example 1: Using the command `grep -l "RNA" technical/biomed/*.txt` would have the following output:  
    ```
-   $ grep -l "RNA" technical/biomed/*.txt
    technical/biomed/1471-2091-2-11.txt
    technical/biomed/1471-2091-2-13.txt
    technical/biomed/1471-2091-2-5.txt
@@ -140,7 +139,6 @@ The command I will research is grep.
    <br/><br/>
    Example 2: Using the command `grep -l "Clean Air Act" technical/government/*/*.txt` would have the following output:
    ```  
-   $ grep -l "Clean Air Act" technical/government/*/*.txt
    technical/government/Env_Prot_Agen/bill.txt
    technical/government/Env_Prot_Agen/final.txt
    technical/government/Env_Prot_Agen/jeffordslieberm.txt
@@ -191,23 +189,96 @@ The command I will research is grep.
    technical/government/Alcohol_Problems/Session4-PDF.txt:1039:patients with acute alcohol intoxication on a daily basis, but
    ```
    This can be useful if we have a presentation or test coming up and need to do a quick review of certain topics. Using the -n command for certain words in a       directory can help us run through the entire directory and find the files and specific lines for us to read through for a quick recap. 
-
-5. Option 3: -i
+<br/><br/>
+   The -n command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
+   <br/><br/>
+3. Option 3: -i
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
-   if using -i. This is useful since some words can be both capitalized and lowercase depending on their usage. Using "-i" would remove any chance we miss some
-   matching lines due to these situations.
-   ![Image](-iExample1.png)
-   ![Image](-iExample2.png)
-
-6. Option 4: -c
-   Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the word we searched for with the grep command.
-   This can be useful to use with the -n command. We can use -c to find if certain files have the topic or word we are looking for, and then use -n to find
-   exactly where they are.
-   ![Image](-cExample1.png)  
-   ![Image](-cExample2.png)
-
-## Citation
-All command options were researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep)
+   if using -i.  
+   Example 1: Using the command `grep -i "methods" technical/biomed/1468*.txt` produces the following output:
+   ```  
+   technical/biomed/1468-6708-3-1.txt:        Materials and methods
+   technical/biomed/1468-6708-3-1.txt:          years, using validated methods presented elsewhere [ 20 ]
+   technical/biomed/1468-6708-3-10.txt:        Methods
+   technical/biomed/1468-6708-3-10.txt:        doxazosin group. All methods employed provided confirmatory
+   technical/biomed/1468-6708-3-10.txt:        investigation support the event ascertainment methods
+   technical/biomed/1468-6708-3-4.txt:        data because there are many possible methods available.
+   technical/biomed/1468-6708-3-4.txt:        More about methods handling missing data
+   technical/biomed/1468-6708-3-4.txt:          Imputation methods
+   technical/biomed/1468-6708-3-4.txt:          The analyses illustrated in Table 2were methods in the
+   technical/biomed/1468-6708-3-4.txt:          There are methods based on a single imputation and
+   technical/biomed/1468-6708-3-4.txt:          methods based on multiple imputation, which, instead of
+   technical/biomed/1468-6708-3-4.txt:          Proper multiple imputation (PMI) methods are described
+   technical/biomed/1468-6708-3-4.txt:          methods of using all available data and LOCF [ 15 ] .
+   technical/biomed/1468-6708-3-4.txt:        Methods based on special missing data models
+   technical/biomed/1468-6708-3-4.txt:        Other, more sophisticated methods based on statistical
+   ```
+   This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
    
+   Example 2: Using the command `grep -i "CEll" technical/biomed/1471-213X-1*.txt` produces the following output:
+   ```
+    technical/biomed/1471-213X-1-12.txt:          The cell cycle stages of ear fibroblasts after
+    technical/biomed/1471-213X-1-12.txt:          analyzed using flow cytometry. Analysis of the cell cycle
+    technical/biomed/1471-213X-1-12.txt:          stages in confluent cells revealed that 91.2 ± 0.2% of
+    technical/biomed/1471-213X-1-12.txt:          the cells were at the G0/G1 phase, 2.5 ± 0.1% were at the
+    technical/biomed/1471-213X-1-12.txt:          population of cells collected after nocodazole treatment,
+    technical/biomed/1471-213X-1-12.txt:          Behaviour before Activation of Donor Cell
+    technical/biomed/1471-213X-1-12.txt:          When confluent cells were transferred into M I
+    technical/biomed/1471-213X-1-12.txt:          reconstituted with nocodazole-treated cells and M I
+    technical/biomed/1471-213X-1-12.txt:          transferring confluent cells and this percentage was
+    technical/biomed/1471-213X-1-12.txt:          embryos reconstituted with nocodazole-treated cells. When
+    technical/biomed/1471-213X-1-12.txt:          nocodazole-treated cells were transferred into M I
+    technical/biomed/1471-213X-1-12.txt:          embryos. Regardless of the cell cycle of the donor cells,
+    technical/biomed/1471-213X-1-12.txt:          Behaviour after Activation of Donor Cell
+   ```
+   This command would be useful if we want to read about cells. Using the grep command with no option would not include the subheadings that capitalize the C in cells. Furthermore, if someone is typing too fast and accidentally type the E with the shift key activated, they would still get their wanted output even if they realized they made a typo error in the command.   
+<br/><br/>
+   The -i command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
+   <br/><br/>
+4. Option 4: -c   
+   Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the term we searched for with the grep command.   
+   Example 1: Using the command `grep -c "terrorism" technical/911report/*.txt` would produce the following output:
+   ```  
+   technical/911report/chapter-1.txt:1
+   technical/911report/chapter-10.txt:14
+   technical/911report/chapter-11.txt:37
+   technical/911report/chapter-12.txt:40
+   technical/911report/chapter-13.1.txt:40
+   technical/911report/chapter-13.2.txt:0
+   technical/911report/chapter-13.3.txt:47
+   technical/911report/chapter-13.4.txt:30
+   technical/911report/chapter-13.5.txt:24
+   technical/911report/chapter-2.txt:2
+   technical/911report/chapter-3.txt:149
+   technical/911report/chapter-5.txt:1
+   technical/911report/chapter-6.txt:67
+   technical/911report/chapter-7.txt:1
+   technical/911report/chapter-8.txt:13
+   technical/911report/chapter-9.txt:0
+   technical/911report/preface.txt:0
+   ```
+   This command would be useful if we want to read about past terrorist attacks and want to filter out low-relevance from high-relevance files. The higher the count of the number of times the word "terrorism" comes up, the more related to terrorist attacks the .txt file would be.  
+
+   Example 2: Using the command `grep -c "RNA" technical/biomed/*.txt` would give us the following output:  
+   ```  
+   technical/biomed/1471-2105-1-1.txt:0
+   technical/biomed/1471-2105-2-1.txt:1
+   technical/biomed/1471-2105-2-8.txt:207
+   technical/biomed/1471-2105-2-9.txt:0
+   technical/biomed/1471-2105-3-12.txt:0
+   technical/biomed/1471-2105-3-14.txt:0
+   technical/biomed/1471-2105-3-16.txt:0
+   technical/biomed/1471-2105-3-17.txt:25
+   technical/biomed/1471-2105-3-18.txt:67
+   technical/biomed/1471-2105-3-2.txt:384
+   technical/biomed/1471-2105-3-22.txt:19
+   technical/biomed/1471-2105-3-23.txt:23
+   technical/biomed/1471-2105-3-24.txt:0
+   technical/biomed/1471-2105-3-26.txt:15
+   ```  
+   This command would be useful if we had to prepare a presentation on RNA due in a few days because we procrastinated. Using the -c option, we can filter through the files to find and read the research papers that have high counts of the term "RNA" and would more likely be relevant to the presentation topic. 
+   <br/><br/>
+   The -c command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
+   <br/><br/>
 
    
