@@ -15,38 +15,40 @@ static int[] reversed(int[] arr) {
 Inserting the array [1, 2, 3, 4, 5] into the method reversed() produces a failure in JUnit testing. Below is the code used to conduct the JUnit Test.  
 ```
 @Test
-  public void testReversed() {
+  public void testReversedUpToFive() {
     int[] input1 = {1, 2, 3, 4, 5};
     int [] expectedResult = {5, 4, 3, 2, 1};
     assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
   }
-```
-Below attached is the screenshot for the resulting terminal output.  
-![Image](L3ReversedFail.png)  
+``` 
 
 **2. An input that doesn’t induce a failure**
 Inserting the array [0, 0, 0, 0, 0] into the method reversed() does not produce a failure in JUnit testing. Below is the code used to conduct the JUnit Test.  
 ```
 @Test
-  public void testReversed() {
+  public void testReversedFiveZeroes() {
     int[] input1 = {0, 0, 0, 0, 0};
     int [] expectedResult = {0, 0, 0, 0, 0};
     assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
   }
 ```
-Below attached is the screenshot for the resulting terminal output.  
-![Image](L3ReversedPass.png)  
 
 **3. The symptom, as the output of running the tests**  
 The symptom is that all values of the supposedly reversed array are replaced by 0. In the failures of JUnit testing, 
 all expected values are marked to be a comparison error since the expected value is not equal to 0. Below are more tests 
 showing that only arrays with all 0 values successfully have their arrays reversed.  
 ```
+@Test
+  public void testReversedUpToFive() {
+    int[] input1 = {1, 2, 3, 4, 5};
+    int [] expectedResult = {5, 4, 3, 2, 1};
+    assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
+  }
+
   @Test
-  public void testReversedThreeZeros() {
-    int[] input1 = {0, 0, 0};
-    int [] expectedResult = {0, 0, 0};
-    System.out.println(ArrayExamples.reversed(input1));
+  public void testReversedFiveZeroes() {
+    int[] input1 = {0, 0, 0, 0, 0};
+    int [] expectedResult = {0, 0, 0, 0, 0};
     assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
   }
 
@@ -59,17 +61,9 @@ showing that only arrays with all 0 values successfully have their arrays revers
   }
 
   @Test
-  public void testReversedEvensToTen() {
-    int[] input1 = {2, 4, 6, 8, 10};
-    int [] expectedResult = {10, 8 , 6, 4, 2};
-    System.out.println(ArrayExamples.reversed(input1));
-    assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
-  }
-
-  @Test
   public void testReversedNotAllZero(){
-    int[] input1 = {0, 1, 0};
-    int [] expectedResult = {0, 1, 0};
+    int[] input1 = {0, 1, 2, 0};
+    int [] expectedResult = {0, 2, 1, 0};
     System.out.println(ArrayExamples.reversed(input1));
     assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
   }
@@ -82,8 +76,8 @@ showing that only arrays with all 0 values successfully have their arrays revers
     assertArrayEquals(expectedResult, ArrayExamples.reversed(input1));
   }
 ```
-The screenshot below shows the terminal output after all the above tests are run together. 
-![Image](Lab3MoreTests.png)  
+The screenshot below shows the terminal output after all the above tests are run together.  
+![Image](test1.png)![Image](test2.png)    
 The only tests to pass were the tests with inputs of all zeroes in the array. Every other test shows a failure with the error being a 
 comparison difference of the expected value vs 0 at the index where the first non-zero expected value appears.  
 
@@ -119,8 +113,9 @@ The command I will research is grep.
 1. Option 1: -l  
    Using -l gives the names of files that contain the word searched for. The output is only the file names.
    <br/><br/>
-   Example 1: Using the command `grep -l "RNA" technical/biomed/*.txt` would have the following output:  
+   Example 1:  
    ```
+   $ grep -l "RNA" technical/biomed/*.txt
    technical/biomed/1471-2091-2-11.txt
    technical/biomed/1471-2091-2-13.txt
    technical/biomed/1471-2091-2-5.txt
@@ -134,11 +129,13 @@ The command I will research is grep.
    technical/biomed/1471-2105-3-18.txt
    technical/biomed/1471-2105-3-2.txt
    technical/biomed/1471-2105-3-22.txt
-   ```  
-   This command can be useful in situations where we want to read about certain medical research ideas and findings on RNA. Giving us the file names that contain     the word "RNA" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the     word "RNA".
+   ```
+   *Note: The above output shown is only a part of the whole output due to length.  
+The command ran above finds and lists out all the files that contain the word "RNA" somewhere within the file. This command can be useful in situations where we want to read about certain medical research ideas and findings on RNA. Giving us the file names that contain    the word "RNA" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the     word "RNA".
    <br/><br/>
-   Example 2: Using the command `grep -l "Clean Air Act" technical/government/*/*.txt` would have the following output:
+   Example 2:  
    ```  
+   $ grep -l "Clean Air Act" technical/government/*/*.txt  
    technical/government/Env_Prot_Agen/bill.txt
    technical/government/Env_Prot_Agen/final.txt
    technical/government/Env_Prot_Agen/jeffordslieberm.txt
@@ -154,24 +151,26 @@ The command I will research is grep.
    technical/government/Gen_Account_Office/og97045.txt
    technical/government/Gen_Account_Office/og98045.txt
    technical/government/Gen_Account_Office/og98046.txt
-   ```  
-   This would be useful if we wanted to read more about the contents of the Clean Air Act and amendments/discussions on it. Giving us the file names that contain     the term "Clean Air Act" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word "Clean Air Act".
+   ```
+   *Note: The above output shown is only a part of the whole output due to length.  
+   The command ran above finds and lists out all the files that contain the term "Clean Air Act" somewhere within the file. This would be useful if we wanted to read more about the contents of the Clean Air Act and amendments/discussions on it. Giving us the file names that contain the term "Clean Air Act" can help guide us to identify which articles to read about for information on RNA, instead of needing to go through all files to check for the word "Clean Air Act".
    <br/><br/>
    The -l command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-2. Option 2: -n
+3. Option 2: -n
    Using -n with the grep command outputs a line number in front of the matching line found with the grep command.
-   Example 1: Using the command `grep -n "At 8:19" technical/911report/chapter-1.txt` produces the following output
+   Example 1:   
    ```
    $ grep -n "At 8:19" technical/911report/chapter-1.txt
    76:    At 8:19, Ong reported:"The cockpit is not answering, somebody's stabbed in business class
    and I think there's Mace that we can't breathe
    I don't know, I think we're getting hijacked." She then told of the stabbings of the two flight attendants.  
    ```
-   This can be useful if we know that we stopped reading a certain file midway through, and want to pick up where we left off again. We most likely would remember some words of the last line we read instead of the line number, so we can find which line we start to read again from easily.
+   The command ran above lists out the line at which the words "At 8:19" can be found in the given file. This can be useful if we know that we stopped reading a certain file midway through, and want to pick up where we left off again. We most likely would remember some words of the last line we read instead of the line number, so we can find which line we start to read again from easily.
    <br/><br/>
-   Example 2: Using the command `grep -n "intoxication" technical/government/Alcohol_Problems/*.txt` produces the following output:
+   Example 2:  
    ```
+   $ grep -n "intoxication" technical/government/Alcohol_Problems/*.txt
    technical/government/Alcohol_Problems/Session2-PDF.txt:27:screening for several alcohol endpoints. Acute intoxication is of
    technical/government/Alcohol_Problems/Session2-PDF.txt:31:observations, may help us identify intoxication. Most alcohol
    technical/government/Alcohol_Problems/Session2-PDF.txt:89:ED problems, such as stress, injury, acute illness, intoxication,
@@ -188,15 +187,17 @@ The command I will research is grep.
    technical/government/Alcohol_Problems/Session4-PDF.txt:636:of police assessment of driver intoxication in motor vehicle
    technical/government/Alcohol_Problems/Session4-PDF.txt:1039:patients with acute alcohol intoxication on a daily basis, but
    ```
-   This can be useful if we have a presentation or test coming up and need to do a quick review of certain topics. Using the -n command for certain words in a       directory can help us run through the entire directory and find the files and specific lines for us to read through for a quick recap. 
+   *Note: The above output shown is only a part of the whole output due to length.  
+   The command ran above gives a line number next to the files that contain the word "intoxication". This can be useful if we have a presentation or test coming up and need to do a quick review of certain topics. Using the -n command for certain words in a directory can help us run through the entire directory and find the files and specific lines for us to read through for a quick recap.  
 <br/><br/>
    The -n command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-3. Option 3: -i
+4. Option 3: -i
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
    if using -i.  
-   Example 1: Using the command `grep -i "methods" technical/biomed/1468*.txt` produces the following output:
-   ```  
+   Example 1:  
+   ```
+   $ grep -i "methods" technical/biomed/1468*.txt
    technical/biomed/1468-6708-3-1.txt:        Materials and methods
    technical/biomed/1468-6708-3-1.txt:          years, using validated methods presented elsewhere [ 20 ]
    technical/biomed/1468-6708-3-10.txt:        Methods
@@ -213,29 +214,32 @@ The command I will research is grep.
    technical/biomed/1468-6708-3-4.txt:        Methods based on special missing data models
    technical/biomed/1468-6708-3-4.txt:        Other, more sophisticated methods based on statistical
    ```
-   This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
+   *Note: The above output shown is only a part of the whole output due to length.  
+   The command ran above shows all the files and text at the line where This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
    
-   Example 2: Using the command `grep -i "CEll" technical/biomed/1471-213X-1*.txt` produces the following output:
+   Example 2:  
    ```
-    technical/biomed/1471-213X-1-12.txt:          The cell cycle stages of ear fibroblasts after
-    technical/biomed/1471-213X-1-12.txt:          analyzed using flow cytometry. Analysis of the cell cycle
-    technical/biomed/1471-213X-1-12.txt:          stages in confluent cells revealed that 91.2 ± 0.2% of
-    technical/biomed/1471-213X-1-12.txt:          the cells were at the G0/G1 phase, 2.5 ± 0.1% were at the
-    technical/biomed/1471-213X-1-12.txt:          population of cells collected after nocodazole treatment,
-    technical/biomed/1471-213X-1-12.txt:          Behaviour before Activation of Donor Cell
-    technical/biomed/1471-213X-1-12.txt:          When confluent cells were transferred into M I
-    technical/biomed/1471-213X-1-12.txt:          reconstituted with nocodazole-treated cells and M I
-    technical/biomed/1471-213X-1-12.txt:          transferring confluent cells and this percentage was
-    technical/biomed/1471-213X-1-12.txt:          embryos reconstituted with nocodazole-treated cells. When
-    technical/biomed/1471-213X-1-12.txt:          nocodazole-treated cells were transferred into M I
-    technical/biomed/1471-213X-1-12.txt:          embryos. Regardless of the cell cycle of the donor cells,
-    technical/biomed/1471-213X-1-12.txt:          Behaviour after Activation of Donor Cell
+   $ grep -i "CEll" technical/biomed/1471-213X-1*.txt
+   technical/biomed/1471-213X-1-12.txt:          The cell cycle stages of ear fibroblasts after
+   technical/biomed/1471-213X-1-12.txt:          analyzed using flow cytometry. Analysis of the cell cycle
+   technical/biomed/1471-213X-1-12.txt:          stages in confluent cells revealed that 91.2 ± 0.2% of
+   technical/biomed/1471-213X-1-12.txt:          the cells were at the G0/G1 phase, 2.5 ± 0.1% were at the
+   technical/biomed/1471-213X-1-12.txt:          population of cells collected after nocodazole treatment,
+   technical/biomed/1471-213X-1-12.txt:          Behaviour before Activation of Donor Cell
+   technical/biomed/1471-213X-1-12.txt:          When confluent cells were transferred into M I
+   technical/biomed/1471-213X-1-12.txt:          reconstituted with nocodazole-treated cells and M I
+   technical/biomed/1471-213X-1-12.txt:          transferring confluent cells and this percentage was
+   technical/biomed/1471-213X-1-12.txt:          embryos reconstituted with nocodazole-treated cells. When
+   technical/biomed/1471-213X-1-12.txt:          nocodazole-treated cells were transferred into M I
+   technical/biomed/1471-213X-1-12.txt:          embryos. Regardless of the cell cycle of the donor cells,
+   technical/biomed/1471-213X-1-12.txt:          Behaviour after Activation of Donor Cell
    ```
+   *Note: The above output shown is only a part of the whole output due to length.  
    This command would be useful if we want to read about cells. Using the grep command with no option would not include the subheadings that capitalize the C in cells. Furthermore, if someone is typing too fast and accidentally type the E with the shift key activated, they would still get their wanted output even if they realized they made a typo error in the command.   
 <br/><br/>
    The -i command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-4. Option 4: -c   
+5. Option 4: -c   
    Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the term we searched for with the grep command.   
    Example 1: Using the command `grep -c "terrorism" technical/911report/*.txt` would produce the following output:
    ```  
@@ -257,6 +261,7 @@ The command I will research is grep.
    technical/911report/chapter-9.txt:0
    technical/911report/preface.txt:0
    ```
+   *Note: The above output shown is only a part of the whole output due to length.
    This command would be useful if we want to read about past terrorist attacks and want to filter out low-relevance from high-relevance files. The higher the count of the number of times the word "terrorism" comes up, the more related to terrorist attacks the .txt file would be.  
 
    Example 2: Using the command `grep -c "RNA" technical/biomed/*.txt` would give us the following output:  
