@@ -17,4 +17,17 @@ I entered the command `vim ListExamples.java` to enter vim.
 Using the failed test, I knew that the error was on line 44 of the file. 
 I used the command `/index1` to search for instances of index1, since in order to fix the error, I needed to change the instance of index1 on line 44 to index2. 
 I pressed the n and N keys to move through the instances. Since the index1 I needed to change was the 10th instance of index1, I pressed n 9 times.  
-Buttons Pressed: `<n> <n> <n> <n> <n> <n> <n> <n> <n>`
+Buttons Pressed: `<n> <n> <n> <n> <n> <n> <n> <n> <n>`  
+Once my cursor was at the correct line, I moved left 6 times using the `<l>` key to get to the space right after the 1 of index1.  
+Buttons Pressed: '<l> <l> <l> <l> <l> <l>`  
+Finally, I entered insert mode using `<i>`, deleted the 1 at the spot of my cursor, and then inserted a 2. 
+Buttons Pressed: `<i> <backspace> <2>'  
+
+Buttons Pressed for entire step: 
+```  
+vim ListExamples.java  
+/index1  
+<n> <n> <n> <n> <n> <n> <n> <n> <n>  
+<l> <l> <l> <l> <l> <l>  
+<i> <backspace> <2>  
+```  
