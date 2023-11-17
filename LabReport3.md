@@ -77,6 +77,7 @@ showing that only arrays with all 0 values successfully have their arrays revers
   }
 ```
 The screenshot below shows the terminal output after all the above tests are run together.  
+*Note: The output was too long for one screenshot. The ouput shown at the beginning of the second screenshot follows directly after the output at the end of the first screenshot.  
 ![Image](test1.png)![Image](test2.png)    
 The only tests to pass were the tests with inputs of all zeroes in the array. Every other test shows a failure with the error being a 
 comparison difference of the expected value vs 0 at the index where the first non-zero expected value appears.  
@@ -157,7 +158,7 @@ The command ran above finds and lists out all the files that contain the word "R
    <br/><br/>
    The -l command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-3. Option 2: -n
+2. Option 2: -n
    Using -n with the grep command outputs a line number in front of the matching line found with the grep command.
    Example 1:   
    ```
@@ -192,7 +193,7 @@ The command ran above finds and lists out all the files that contain the word "R
 <br/><br/>
    The -n command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-4. Option 3: -i
+3. Option 3: -i
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
    if using -i.  
    Example 1:  
@@ -215,7 +216,7 @@ The command ran above finds and lists out all the files that contain the word "R
    technical/biomed/1468-6708-3-4.txt:        Other, more sophisticated methods based on statistical
    ```
    *Note: The above output shown is only a part of the whole output due to length.  
-   The command ran above shows all the files and text at the line where This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
+   The command ran above shows all the files and text at the line where the word "methods" is found regardless of capitalization. This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
    
    Example 2:  
    ```
@@ -234,15 +235,16 @@ The command ran above finds and lists out all the files that contain the word "R
    technical/biomed/1471-213X-1-12.txt:          embryos. Regardless of the cell cycle of the donor cells,
    technical/biomed/1471-213X-1-12.txt:          Behaviour after Activation of Donor Cell
    ```
-   *Note: The above output shown is only a part of the whole output due to length.  
-   This command would be useful if we want to read about cells. Using the grep command with no option would not include the subheadings that capitalize the C in cells. Furthermore, if someone is typing too fast and accidentally type the E with the shift key activated, they would still get their wanted output even if they realized they made a typo error in the command.   
+   *Note: The above output shown is only a part of the whole output due to length.    
+   The command ran above shows all the files and text at the line where the word "CEll" is found regardless of capitalization. This command would be useful if we want to read about cells. Using the grep command with no option would not include the subheadings that capitalize the C in cells. Furthermore, if someone is typing too fast and accidentally type the E with the shift key activated, they would still get their wanted output even if they realized they made a typo error in the command.   
 <br/><br/>
    The -i command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-5. Option 4: -c   
+4. Option 4: -c   
    Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the term we searched for with the grep command.   
-   Example 1: Using the command `grep -c "terrorism" technical/911report/*.txt` would produce the following output:
-   ```  
+   Example 1: 
+   ```
+   $ grep -c "terrorism" technical/911report/*.txt  
    technical/911report/chapter-1.txt:1
    technical/911report/chapter-10.txt:14
    technical/911report/chapter-11.txt:37
@@ -261,11 +263,12 @@ The command ran above finds and lists out all the files that contain the word "R
    technical/911report/chapter-9.txt:0
    technical/911report/preface.txt:0
    ```
-   *Note: The above output shown is only a part of the whole output due to length.
-   This command would be useful if we want to read about past terrorist attacks and want to filter out low-relevance from high-relevance files. The higher the count of the number of times the word "terrorism" comes up, the more related to terrorist attacks the .txt file would be.  
+   *Note: The above output shown is only a part of the whole output due to length.  
+   The command ran above shows the number of times the word "terrorism" is found in each individual file in the directory. This command would be useful if we want to read about past terrorist attacks and want to filter out low-relevance from high-relevance files. The higher the count of the number of times the word "terrorism" comes up, the more related to terrorist attacks the .txt file would be.  
 
-   Example 2: Using the command `grep -c "RNA" technical/biomed/*.txt` would give us the following output:  
-   ```  
+   Example 2:     
+   ```
+   $ grep -c "RNA" technical/biomed/*.txt
    technical/biomed/1471-2105-1-1.txt:0
    technical/biomed/1471-2105-2-1.txt:1
    technical/biomed/1471-2105-2-8.txt:207
@@ -280,8 +283,9 @@ The command ran above finds and lists out all the files that contain the word "R
    technical/biomed/1471-2105-3-23.txt:23
    technical/biomed/1471-2105-3-24.txt:0
    technical/biomed/1471-2105-3-26.txt:15
-   ```  
-   This command would be useful if we had to prepare a presentation on RNA due in a few days because we procrastinated. Using the -c option, we can filter through the files to find and read the research papers that have high counts of the term "RNA" and would more likely be relevant to the presentation topic. 
+   ```
+   *Note: The above output shown is only a part of the whole output due to length.  
+   The command ran above shows the number of times the word "RNA" is found in each individual file in the directory. This command would be useful if we had to prepare a presentation on RNA due in a few days because we procrastinated. Using the -c option, we can filter through the files to find and read the research papers that have high counts of the term "RNA" and would more likely be relevant to the presentation topic. 
    <br/><br/>
    The -c command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
