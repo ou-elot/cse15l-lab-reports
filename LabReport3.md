@@ -82,7 +82,7 @@ The screenshot below shows the terminal output after all the above tests are run
 The only tests to pass were the tests with inputs of all zeroes in the array. Every other test shows a failure with the error being a 
 comparison difference of the expected value vs 0 at the index where the first non-zero expected value appears.  
 
-**4. The bug, as the before-and-after code change required to fix it** 
+**4. The bug, as the before-and-after code change required to fix it**   
 Below is the before code:  
 ```
 static int[] reversed(int[] arr) {
@@ -111,7 +111,7 @@ newArray, ensuring that the values being assigned to the return array are not al
 
 ## Part 2: Researching Commands  
 The command I will research is grep. 
-1. Option 1: -l  
+**1. Option 1: -l**  
    Using -l gives the names of files that contain the word searched for. The output is only the file names.
    <br/><br/>
    Example 1:  
@@ -158,7 +158,7 @@ The command ran above finds and lists out all the files that contain the word "R
    <br/><br/>
    The -l command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-2. Option 2: -n
+**2. Option 2: -n**  
    Using -n with the grep command outputs a line number in front of the matching line found with the grep command.
    Example 1:   
    ```
@@ -193,7 +193,7 @@ The command ran above finds and lists out all the files that contain the word "R
 <br/><br/>
    The -n command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-3. Option 3: -i
+**3. Option 3: -i**  
    Using -i with the grep command acts as usual, but the term is not case-sensitive. For example, searching for the character "a" and "A" would be the same thing
    if using -i.  
    Example 1:  
@@ -240,7 +240,7 @@ The command ran above finds and lists out all the files that contain the word "R
 <br/><br/>
    The -i command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
-4. Option 4: -c   
+**4. Option 4: -c**   
    Using -c doesn't output any matching lines but instead outputs a number that tells us how many lines have the term we searched for with the grep command.   
    Example 1: 
    ```
