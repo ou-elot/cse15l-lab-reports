@@ -217,6 +217,7 @@ The command ran above finds and lists out all the files that contain the word "R
    technical/biomed/1468-6708-3-4.txt:        Methods based on special missing data models
    technical/biomed/1468-6708-3-4.txt:        Other, more sophisticated methods based on statistical
    ```
+<br/><br/>
    *Note: The above output shown is only a part of the whole output due to length.  
    The command ran above shows all the files and text at the line where the word "methods" is found regardless of capitalization. This command would be useful if we want to look at the experimental methods of different research papers. Some research papers use "Materials and methods" where the m is lowercase, and other papers use "Methods" where the m is uppercase. Using grep without the -i option for "methods" would miss the lines where the research paper used "Methods". 
    
