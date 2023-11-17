@@ -163,9 +163,11 @@ The command ran above finds and lists out all the files that contain the word "R
    Example 1:   
    ```
    $ grep -n "At 8:19" technical/911report/chapter-1.txt
-   76:    At 8:19, Ong reported:"The cockpit is not answering, somebody's stabbed in business class
+   76:    At 8:19, Ong reported:"The cockpit is not answering,
+   somebody's stabbed in business class
    and I think there's Mace that we can't breathe
-   I don't know, I think we're getting hijacked." She then told of the stabbings of the two flight attendants.  
+   I don't know, I think we're getting hijacked."
+   She then told of the stabbings of the two flight attendants.  
    ```
    The command ran above lists out the line at which the words "At 8:19" can be found in the given file. This can be useful if we know that we stopped reading a certain file midway through, and want to pick up where we left off again. We most likely would remember some words of the last line we read instead of the line number, so we can find which line we start to read again from easily.
    <br/><br/>
