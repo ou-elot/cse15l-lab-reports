@@ -159,7 +159,7 @@ The command ran above finds and lists out all the files that contain the word "R
    The -l command option was researched on [Wikibooks](https://en.wikibooks.org/wiki/Grep): https://en.wikibooks.org/wiki/Grep 
    <br/><br/>
 **2. Option 2: -n**  
-   Using -n with the grep command outputs a line number in front of the matching line found with the grep command.
+   Using -n with the grep command outputs a line number in front of the matching line found with the grep command.  
    Example 1:   
    ```
    $ grep -n "At 8:19" technical/911report/chapter-1.txt
