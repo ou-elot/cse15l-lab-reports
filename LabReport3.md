@@ -110,7 +110,7 @@ newArray, ensuring that the values being assigned to the return array are not al
 
 
 ## Part 2: Researching Commands  
-The command I will research is grep. 
+The command I will research is grep.   
 **1. Option 1: -l**  
    Using -l gives the names of files that contain the word searched for. The output is only the file names.
    <br/><br/>
