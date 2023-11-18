@@ -4,8 +4,8 @@ I entered the following into my terminal to log into my ieng6 account: `ssh cs15
 ![Image](ssh.png)  
 
 ## Step 2: Clone the git fork  
-I entered the command `git clone https://github.com/ou-elot/lab7report` to clone my forked repository.  
-![Image](clone.png)    
+I entered the command `git clone git@github.com:ou-elot/lab7report.git` to clone my forked repository using the SSH url.  
+![Image](sshgit.png)    
 
 ## Step 3: Run the tests, demonstrating that they fail  
 First, I changed my directory to lab7report using the ls and cd commands. Once I was in the lab7report directory, I ran the command `bash test.sh` to run the java tests to show that they failed. 
