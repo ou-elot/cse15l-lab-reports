@@ -309,5 +309,25 @@ do
 it
 ```
 
-   
+c. The full command line (or lines) you ran to trigger the bug  
+Running the commands
+```
+javac Server.java
+javac StringServer.java
+java StringServer 4000 
+```
+would produce the bug. 
 
+If the commands were put into a bash script, like `server.sh` in the file structure above, then simply running 
+```
+bash server.sh
+```
+would produce the bug
+
+![Image](buggy.png)   
+d. A description of what to edit to fix the bug  
+adding a path to the file after the server port number would fix the bug. In my bash script, I used `$1` to give the user freedom in choosing what file to use when starting the server.   
+
+
+## Part 2: Reflection  
+Something really cool I learned was using vim and jdb. Vim doesn't feel any more faster to edit files for me, but having a new way to edit files makes it more fun, similar to getting a new gift. Jdb makes it a lot more convenient to print out things I want when debugging. I tried using jdb after learning it on some of my old buggy CSE12 PA submissions on gradescope. In order to fix this bugs, I had to write many lines of `System.out.println` for the terminal to output variables to try and find what could be wrong. Now, I can just type `locals` isntead of having to type `System.out.println` numerous times, making it a lot more convenient. 
