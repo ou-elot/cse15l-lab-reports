@@ -1,79 +1,30 @@
 # Lab Report 5  
 ## Part 1: Debugging Scenario  
+The files and directories referenced are from https://github.com/lim-rachel/stringsearch, the repository used for skill demo 1 accessible on prarielearn.   
+
 **1. Original Post From Student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is**   
-  
-The post content is about code for Linked Lists, specifically a method trying to add a node at the end of the list. The student's code assigns a new Node (value_to_be_added, null) to current instead of current.next, essentially replacing the last node instead of adding a new node. The tests the student talks about in the post reference the methods `public int length (Node root)` and `public Node last (Node root)`. The method `public int length (Node root)` gives the total number of nodes in the linked list and the method `public int last (Node root)` gives the last node of the Linked List. These methods' bodies are not in the code block for the hypothetical EdStem post to not make the post too long and make it easier to focus on the buggy add method. Instead, methods `length` and `last` are listed below for context.  
-```
-public int length (Node root) {
-     //case 1: if root == null, then length is 0
-     if (root == null) {
-          return 0;
-     }
-     //case 2: root != null, but root.next == null. Length is 1
-     else if (root.next == null) {
-          return 1;
-     }
-     //case 3: use awhile loop to run to the end, adding 1 every iteration to a counter
-     else {
-          int count = 0;
-          while (root.next != null) {
-               root = root.next;
-               count = count + 1;
-          }
-          return count;
-     }
-}
+Below is a hypothetical EdStem post from a student:
 
-public int last (Node root) {
-     //case 1: root is null, case 2: root is not null, but root.next = null. 
-     if (root == null ) {
-          throw new NoSuchElementException();
-     }
-     else if (root.next == null) {
-          return root.value;
-     }
-     //use a while loop to run to the end
-     else {
-          Node current = root;
-          while (root.next != null) {
-               current = root.next;
-          }
-          return current.value;
-     }
-}
-```  
-Below is the hypothetical EdStem post:
-> Hi,
-> I am currently working on the method `public void add (int val)`.
-> Below is the code I currently have for the add method:
-> ```
-> public void add (Node root, int val) {
->     Node current = root;
->     //if root is null aka LinkedList is empty, then set (val, null) as new root.
->     if (this.root == null) {
->          this.root = new Node (val, null);
->     }
->     //moving down to the end of the LinkedList and adding a new Node
->     while(current.next != null) {
->          current = current.next;
->     }
->     current = new Node (val, null);
-> }
-> ```
-> My current jUnit test tests for the length and the last node of the Linked List. Every time I run the test and send the output to a txt file, the results in the txt file show that the last node has the right node, but the length stays the same. I've looked at my code numerous times and can't seem to find the bug. What should I do next to fix this? The screenshots for my jUnit tests and results are attached below.
-> 
-> ![Image](jUnit-tests.png)
-> ![Image](jUnit-result.txt.png)   
-> 
+>Unable to run StringServer. 
+>
+>Hi,
+> I am currently trying to write a bash script that will run StringServer.
+> Below is the following bash script I have written so far and a screenshot showing the output when I run the bash script:
+>```
+>javac Server.java
+>javac StringServer.java
+>java StringServer 4000
+>```
+> ![Image](server.sh.png)
+> I'm a little lost as to why the server isn't starting, as I'm using the same command format in lab. My current guess is that I am missing something in the java command to run the server since I don't see any compile errors in the output, so I think the files compiled correctly.  
 
+The Symptom: Instead of being notified that the server is running on our local machine, we get an IndexOutOfBounds runtime error.  
+Failure Inducing Input: `java StringServer 4000`, as shown above. 
 
-**2. A response from a TA asking a leading question or suggesting a command to try**
-Below is a hypothetical TA Response:
+**2. A response from a TA asking a leading question or suggesting a command to try** 
 > Hi there!
 > 
-> It seems like your first add passed the test, meaning your code to create a new root worked. The bug is from the second part of your code where you try to move down the Linked List and add a new node.
-> 
-> Try using jdb to find the value of the node 'current' is after you run through the while loop to move through the LinkedList. Does the value of 'current' change between line numbers? Think about if the objects 'current', 'current.value', and 'current.next' are referencing refer to an entire node or part of a node. 
+> You did indeed compile everything correctly. The error message shown is a runtime error, so there is something wrong with your java command. Use vim or VSCode to open StringServer.java, move to line 72, the line where the error occurs according to the output.
+>
+> What is new on that line that the NumberSearch server we used in lab didn't have? Afterwards, try to find what that argument is supposed to look like using the contents of the StringServer.java file.
 
-**3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is**  
-Below shows the result of the student using jdb: 
