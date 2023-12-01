@@ -1,6 +1,6 @@
 # Lab Report 5  
 ## Part 1: Debugging Scenario  
-**1. Original Post From Student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is.**   
+**1. Original Post From Student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is**   
   
 The post content is about code for Linked Lists, specifically a method trying to add a node at the end of the list. The student's code assigns a new Node (value_to_be_added, null) to current instead of current.next, essentially replacing the last node instead of adding a new node. The tests the student talks about in the post reference the methods `public int length (Node root)` and `public Node last (Node root)`. The method `public int length (Node root)` gives the total number of nodes in the linked list and the method `public int last (Node root)` gives the last node of the Linked List. These methods' bodies are not in the code block for the hypothetical EdStem post to not make the post too long and make it easier to focus on the buggy add method. Instead, methods `length` and `last` are listed below for context.  
 ```
@@ -60,10 +60,20 @@ Below is the hypothetical EdStem post:
 >     current = new Node (val, null);
 > }
 > ```
-> My current jUnit test tests for the length and the last node of the Linked List. Every time I run the test, the last node has the right node, but the length stays the same. I've looked at my code numerous times and can't seem to find the bug. What should I do next to fix this? The screenshots for my jUnit test results are attached below.  
-> ![Image](lab5bug.png)  
+> My current jUnit test tests for the length and the last node of the Linked List. Every time I run the test and send the output to a txt file, the results in the txt file show that the last node has the right node, but the length stays the same. I've looked at my code numerous times and can't seem to find the bug. What should I do next to fix this? The screenshots for my jUnit tests and results are attached below.
+> 
+> ![Image](jUnit-tests.png)
+> ![Image](jUnit-result.txt.png)   
+> 
 
+
+**2. A response from a TA asking a leading question or suggesting a command to try**
 Below is a hypothetical TA Response:
 > Hi there!
-> It seems like your first add passed the test, meaning your code to create a new root worked. The bug is from the second part of your code where you try to move down the Linked List and add a new node. 
 > 
+> It seems like your first add passed the test, meaning your code to create a new root worked. The bug is from the second part of your code where you try to move down the Linked List and add a new node.
+> 
+> Try using jdb to find the value of the node 'current' is after you run through the while loop to move through the LinkedList. Does the value of 'current' change between line numbers? Think about if the objects 'current', 'current.value', and 'current.next' are referencing refer to an entire node or part of a node. 
+
+**3. Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is**  
+Below shows the result of the student using jdb: 
