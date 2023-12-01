@@ -62,3 +62,8 @@ Below is the hypothetical EdStem post:
 > ```
 > My current jUnit test tests for the length and the last node of the Linked List. Every time I run the test, the last node has the right node, but the length stays the same. I've looked at my code numerous times and can't seem to find the bug. What should I do next to fix this? The screenshots for my jUnit test results are attached below.  
 > ![Image](lab5bug.png)  
+
+Below is a hypothetical TA Response:
+> Hi there!
+> It seems like your first add passed the test, meaning your code to create a new root worked. The bug is from the second part of your code where you try to move down the Linked List and add a new node. 
+> 
