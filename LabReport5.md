@@ -202,7 +202,7 @@ class StringServer {
 }
 ```
 `session.log` is an empty file. 
-The contents of 'Columbia-birds.txt`, `bridges.txt`, and `words.txt` are not significant, as any text file can be used to run the server. 
+The contents of `Columbia-birds.txt`, `bridges.txt`, and `words.txt` are not significant, as any text file can be used to run the server. 
 
 c. The full command line (or lines) you ran to trigger the bug  
 Running the commands
