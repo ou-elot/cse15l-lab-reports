@@ -1,6 +1,6 @@
 # Lab Report 5  
 ## Part 1: Debugging Scenario  
-The files and directories referenced are from https://github.com/lim-rachel/stringsearch, the repository used for skill demo 1 accessible on prarielearn. The NumberSearch server referenced is from week 2 lab: https://ucsd-cse15l-f23.github.io/week/week2/  
+The files and directories referenced are from https://github.com/lim-rachel/stringsearch, the repository used for skill demo 1 accessible on prarielearn. The NumberSearch server referenced in the student post is from week 2 lab: https://ucsd-cse15l-f23.github.io/week/week2/  
 
 **1. Original Post From Student with a screenshot showing a symptom and a description of a guess at the bug/some sense of what the failure-inducing input is**   
 Below is a hypothetical EdStem post from a student:
@@ -16,7 +16,7 @@ Below is a hypothetical EdStem post from a student:
 >java StringServer 4000
 >```
 > ![Image](server.sh.png)
-> I'm a little lost as to why the server isn't starting, as I'm using the same command format in lab. My current guess is that I am missing something in the java command to run the server since I don't see any compile errors in the output, so I think the files compiled correctly.  
+> I'm a little lost as to why the server isn't starting, as I'm using the same command format for NumberSearch server in lab. My current guess is that I am missing something in the java command to run the server since I don't see any compile errors in the output, so I think the files compiled correctly.  
 
 The Symptom: Instead of being notified that the server is running on our local machine, we get an IndexOutOfBounds runtime error.  
 Failure Inducing Input: `java StringServer 4000`, as shown above. 
@@ -202,7 +202,114 @@ class StringServer {
 }
 ```
 `session.log` is an empty file. 
-The contents of `Columbia-birds.txt`, `bridges.txt`, and `words.txt` are not significant, as any text file can be used to run the server. 
+The contents of `Columbia-birds.txt`, `bridges.txt`, and `words.txt` are not significant as any text file can be used to run the server, but the contents will be shown below.   
+Content of `Columbia-birds.txt` :  
+```
+Cauca guan
+Chestnut-winged chachalaca
+Colombian chachalaca
+Blue-billed curassow
+Chestnut wood-quail
+Gorgeted wood-quail
+Colombian grebe
+Tolima dove
+Bogota sunangel
+Black-backed thornbill
+Buffy helmetcrest
+Blue-bearded helmetcrest
+Green-bearded helmetcrest
+Gorgeted puffleg
+Colorful puffleg
+Black inca
+White-tailed starfrontlet
+Dusky starfrontlet
+Purple-collared woodstar
+Santa Marta woodstar
+Chiribiquete emerald
+Santa Marta blossomcrown
+Tolima blossomcrown
+Santa Marta sabrewing
+Chestnut-bellied hummingbird
+Indigo-capped hummingbird
+Sapphire-bellied hummingbird
+Santa Marta screech-owl
+Sooty-capped puffbird
+White-mantled barbet
+Grayish piculet
+Beautiful woodpecker
+Rufous-fronted parakeet
+Indigo-winged parrot
+Turquoise-winged parrotlet
+Santa Marta parakeet
+Brown-breasted parakeet
+Santa Marta antbird
+East Andean antbird
+Parker's antbird
+Santa Marta antpitta
+Cundinamarca antpitta
+Sierra Nevada antpitta
+Chami antpitta
+```
+
+Content of `bridges.txt`:  
+```
+Arch bridge
+Through arch bridge
+Beam bridge
+Log bridge
+Viaduct
+Cavity wall viaduct
+Bowstring arch
+Box girder bridge
+Cable-stayed bridge
+Cable-stayed suspension bridge hybrid
+Cantilever bridge
+Cantilever spar cable-stayed bridge
+Clapper bridge
+Covered bridge
+Girder bridge
+Continuous span girder bridge
+Integral bridge				
+Extradosed bridge
+Moon bridge
+Movable bridge
+Pigtail bridge
+Plate girder bridge
+Pontoon bridge
+Rigid-frame bridge
+Roving bridge
+Segmental bridge
+Self-anchored suspension bridge
+Side-spar cable-stayed bridge
+Simple suspension bridge
+Step-stone bridge
+Stressed ribbon bridge
+Suspension bridge
+Transporter bridge
+Trestle bridge
+Truss arch bridge
+Truss bridge
+Vierendeel bridge
+Brown truss
+Lattice truss bridge
+Tubular bridge
+Vlotbrug
+```
+
+Content of `words.txt`:  
+```
+good
+luck
+on
+your
+skill
+demo
+everyone
+you
+can
+do
+it
+```
 
 c. The full command line (or lines) you ran to trigger the bug  
 Running the commands
