@@ -13,10 +13,12 @@ Below is a hypothetical EdStem post from a student:
 >```
 >javac Server.java
 >javac StringServer.java
->java StringServer 4000
+>java StringServer.java 4000
 >```
-> ![Image](server.sh.png)
-> I'm a little lost as to why the server isn't starting, as I'm using the same command format for NumberSearch server in lab. My current guess is that I am missing something in the java command to run the server since I don't see any compile errors in the output, so I think the files compiled correctly.  
+> ![Image](error2.png)
+>
+>
+> I'm a little lost as to why the server isn't starting, as I'm using the same command format for the NumberSearch server in lab and tried different numbers for the port as well. My current guess is that I am missing something in the java command to run the server since I don't see any compile errors in the output, so I think the files compiled correctly.  
 
 The Symptom: Instead of being notified that the server is running on our local machine, we get an IndexOutOfBounds runtime error.  
 Failure Inducing Input: `java StringServer 4000`, as shown above. 
@@ -24,27 +26,37 @@ Failure Inducing Input: `java StringServer 4000`, as shown above.
 **2. A response from a TA asking a leading question or suggesting a command to try** 
 > Hi there!
 > 
-> You did indeed compile everything correctly. The error message shown is a runtime error, so there is something wrong with your java command. Use vim or VSCode to open StringServer.java, move to line 72, the line where the error occurs according to the output. 
+> You did indeed compile everything correctly. However, review class notes, lab, or CSE11 content to try to remember what the `java` command does. Does it run a Java file? Try creating two classes in one java file, and running `javac` on that file. What pops up on the side of VSCode that shows your file directory (class names or file names)? 
 >
-> What is new on that line that the NumberSearch server we used in lab didn't have? Where in the file could we find what that new part is supposed to look like?
+> After fixing this, there may be another error message saying that there will be an out-of-bounds exception on the file you are trying to run aka `StringServer.java`. Use `vim` or VSCode to open StringServer.java, move to line 72, the line where the error occurs according to the output. Compare it to `NumberSearch` from lab. 
+>
+> What is new on that line that the `NumberSearch` server we used in lab didn't have? Where in the file could we find what that new part is supposed to look like?
 
 **3.Another screenshot/terminal output showing what information the student got from trying that, and a clear description of what the bug is.**   
-![Image](line72.png)  
-The student ran the command `vim StringServer.java` to open the file and then `:72` to move to line 72. He saw that the start command included a new StringHandler[args(1)] argument, something that was not in the NumberServer shown in lab. Using the TA's hint that the format for the StringHandler[args(1)] argument was in the same file, the student found that the constructor for StringHandler needed a path to a file.   
+  
+![Image](javac.png)    
+The first hint regarding the `java` helped the student realize that java takes class names as arguments, not file names. The student created a new java file named `Test.java` with classes `Test` and `Learn`. After compiling with `javac Test.java`, the student sees that there are two new `.class` files created with names corresponding to the class names he just created in `Test.java`. After fixing the error from `java StringServer.java 4000` to `java StringServer 4000`, the student now sees this error message as warned by the TA:  
+![Image](server.sh.png)    
+ 
+The student ran the command `vim StringServer.java` to open the file and then `:72` to move to line 72. He saw that the start command included a new StringHandler[args(1)] argument, something that was not in the NumberServer shown in lab. Using the TA's hint that the format for the StringHandler[args(1)] argument was in the same file, the student found that the constructor for StringHandler needed a path to a file.    
+![Image](line72.png)   
 Below is the new bash script, an example of the student running it, and the corresponding output: 
 ```
 javac Server.java
 javac StringServer.java
 java StringServer 4000 $1
 ```
+*Note: `$1` can be replaced by a file path to a .txt file, but gives the user more flexibility in choosing what file to use instead of having to edit the bash script for the corresponding file everytime. 
 ![Image](birds.png)   
-![Image](serverdge.png)   
+![Image](serverdge.png)    
 *Note: the screenshot of the server is not the whole server and is cut off since the list of birds is too long.  
 The bug: The bug was that the original bash script did not include enough parameters to run the start method.  
 
 **4. All the information needed about the setup**
 a. The file & directory structure needed  
-   Below was the file and directory structure used. Most of it can be obtained by git cloning the repository https://github.com/lim-rachel/stringsearch. The only file not in the clone would be the bash script.
+   Below was the file and directory structure used. Most of it can be obtained by git cloning the repository https://github.com/lim-rachel/stringsearch. The only file not in the clone would be the bash script. 
+
+   *Note: `Test.java` was a newly created file for the student to learn that javac works on classes, not files, and does not affect the output of `server.sh` if it is not created and therefore is not added in the below directory structure. 
 
    ```
    StringSearch/
