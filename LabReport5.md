@@ -50,7 +50,7 @@ java StringServer 4000 $1
 ![Image](birds.png)   
 ![Image](serverdge.png)    
 *Note: the screenshot of the server is not the whole server and is cut off since the list of birds is too long.  
-The bug: The bug was that the original bash script did not include enough parameters to run the start method.  
+The bug: The bug was that the original bash script did not use the `java` command correctly, and did not include enough parameters to run the start method.  
 
 **4. All the information needed about the setup**
 a. The file & directory structure needed  
@@ -328,9 +328,10 @@ Running the commands
 ```
 javac Server.java
 javac StringServer.java
-java StringServer 4000 
+java StringServer.java 4000 
 ```
-would produce the bug. 
+would produce the bug.  
+After the first fix of removing `.java` to make the command `java StringServer 4000`, the bug that there are not enough arguments would be produced. 
 
 If the commands were put into a bash script, like `server.sh` in the file structure above, then simply running 
 ```
@@ -340,7 +341,7 @@ would produce the bug
 
 ![Image](buggy.png)   
 d. A description of what to edit to fix the bug  
-adding a path to the file after the server port number would fix the bug. In my bash script, I used `$1` to give the user freedom in choosing what file to use when starting the server.   
+Removing the `.java` section and adding a path to the file after the server port number would fix the bug. Furthermore, it is also possible to change `StringHandler[args(1)]` of line 72 in `StringServer.java` to a file path and then remove the `$1` or file name argument in the bash script, but this limits the file options we can run the server with to only one file and makes it inconvenient to constantly change the code if we need to run this server for different files. In my bash script, I used `$1` to give the user freedom in choosing what file to use when starting the server.   
 
 
 ## Part 2: Reflection  
